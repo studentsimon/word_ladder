@@ -8,7 +8,7 @@ import copy
 def ladderLength(beginWord, endWord, dictionary_file='words5.dict'):
         """
         :type beginWord: str
-        :type endWord: str
+        :type endWord: strverify_word_ladder(ladder)
         :type wordList: List[str]
         :rtype: int
         """
@@ -117,16 +117,17 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
 
 
 def verify_word_ladder(ladder):
-    if len(ladder) == 0:
+    a1 = ladder     
+    if len(a1) == 0:
             return False
         
     '''
     Returns True if each entry of the input list is adjacent to its neighbors;
     otherwise returns False.
     '''
-    while len(ladder) > 1:
-            if _adjacent(ladder[0], ladder[1]) == True:
-                    ladder.remove(ladder[0])
+    while len(a1) > 1:
+            if _adjacent(a1[0], a1[1]) == True:
+                    ladder.remove(a1[0])
                     
             else:
                     return False
