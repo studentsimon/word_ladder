@@ -115,11 +115,14 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
 
 
 def verify_word_ladder(ladder):
+    if len(ladder) == 0:
+            return False
+        
     '''
     Returns True if each entry of the input list is adjacent to its neighbors;
     otherwise returns False.
     '''
-    while len(ladder) > 1:
+    while len(ladder) >= 1:
             if _adjacent(ladder[0], ladder[1]) == True:
                     ladder.remove(ladder[0])
                     
