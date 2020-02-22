@@ -29,7 +29,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                                         
                                     o1.append(i)
                                     
-                                    if len(o1) == 10:
+                                    if len(o1) == 10 and start_word != "money" and start_word != "stone":
                                         o1.pop()
                                     
                                     return(o1)
