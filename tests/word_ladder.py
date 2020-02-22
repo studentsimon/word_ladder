@@ -4,7 +4,7 @@ import collections
 from collections import deque
 import copy
 
-def word_ladder(start_word, end_word, dictionary_file='../words5.dict'):
+def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
 
     if start_word == end_word:
             list1 = [start_word]
@@ -23,18 +23,12 @@ def word_ladder(start_word, end_word, dictionary_file='../words5.dict'):
             for i in wordList:                                  #for each word in the dictionary
                     if _adjacent(o1[len(o1)-1], i):             #if word is adjacent to the top of the stack
                             if i == end_word:
-                                            #if word is end word
-                                                     
-                                    
-                                
                                     o3 = o1
-                                    if(len(o3) == 9):
-                                        return(o3)
-                                        break
-                                    else:
-                                        o3.append(i)
-                                        return(o3)
-                                        break                       #you are done
+                                                     ## i have no idea why all 9 lists are length 10...
+                                        
+                                    o3.append(i)
+                                    return(o3)
+                                    break                       #you are done
                                    
                                       #front stack + this word is word ladder
                                               
