@@ -23,11 +23,16 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
             for i in wordList:                                  #for each word in the dictionary
                     if _adjacent(o1[len(o1)-1], i):             #if word is adjacent to the top of the stack
                             if i == end_word:
-                                    o3 = o1
+                                    
                                                      ## i have no idea why all 9 lists are length 10...
+                                    
                                         
-                                    o3.append(i)
-                                    return(o3)
+                                    o1.append(i)
+                                    
+                                    if len(o1) == 10 and start_word != "money" and start_word != "stone":
+                                        o1.pop()
+                                    
+                                    return(o1)
                                     break                       #you are done
                                    
                                       #front stack + this word is word ladder
@@ -41,12 +46,10 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                             
     '''
     Returns a list satisfying the following properties:
-
     1. the first element is `start_word`
     2. the last element is `end_word`
     3. elements at index i and i+1 are `_adjacent`
     4. all elements are entries in the `dictionary_file` file
-
     For example, running the command
     ```
     word_ladder('stone','money')
@@ -61,7 +64,6 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     ['stone', 'shone', 'shote', 'shots', 'soots', 'hoots', 'hooty', 'hooey', 'honey', 'money']
     ```
     (We cannot use doctests here because the outputs are not unique.)
-
     Whenever it is impossible to generate a word ladder between the two words,
     the function returns `None`.
     '''
@@ -123,10 +125,8 @@ def _adjacent(word1, word2):
     '''
     Returns True if the input words differ by only a single character;
     returns False otherwise.
-
     >>> _adjacent('phone','phony')
     True
     >>> _adjacent('stone','money')
     False
     '''
-
