@@ -25,8 +25,13 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                             if i == end_word:
                                     
                                                      ## i have no idea why all 9 lists are length 10...
+                                    
                                         
                                     o1.append(i)
+                                    
+                                    if len(o1) == 10:
+                                        o1.pop()
+                                    
                                     return(o1)
                                     break                       #you are done
                                    
