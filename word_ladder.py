@@ -71,12 +71,12 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                                     print(o1[len(o1)-1])        #if word is end word
                                     print(i)                    
                                     
-                                    print("yay!")
+                                
                                     o3 = o1
                                     o3.append(i)
-                                    print(o3)
+                                    
                                                                 #you are done
-                                    return(o3)                   #front stack + this word is word ladder
+                                    return(o3)                  #front stack + this word is word ladder
                                               
                             o2 = copy.deepcopy(o1)              #make copy of the stack
                             o2.append(i)                        #push found word onto copy
