@@ -23,10 +23,10 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
             for i in wordList:                                  #for each word in the dictionary
                     if _adjacent(o1[len(o1)-1], i):             #if word is adjacent to the top of the stack
                             if i == end_word:
-                                    o3 = o1
+                                    
                                                      ## i have no idea why all 9 lists are length 10...
                                         
-                                    o3.append(i)
+                                    o1.append(i)
                                     return(o3)
                                     break                       #you are done
                                    
