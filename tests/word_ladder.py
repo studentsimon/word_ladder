@@ -28,7 +28,8 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                                     
                                 
                                     o3 = o1
-                                    o3.append(i)
+                                    if(len(o3) != 9):
+                                        o3.append(i)
 
                                     print(o3)
                                                                 #you are done
