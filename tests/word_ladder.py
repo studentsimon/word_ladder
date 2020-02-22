@@ -4,58 +4,13 @@ import collections
 from collections import deque
 import copy
 
-
-def ladderLength(beginWord, endWord, dictionary_file='words5.dict'):
-        """
-        :type beginWord: str
-        :type endWord: strverify_word_ladder(ladder)
-        :type wordList: List[str]
-        :rtype: int
-        """
-
-        f = open(dictionary_file,'r')
-
-
-        wordList = [line[0:5] for line in f.readlines()]
-
-
-        
-
-        lit = [beginWord]
-        
-        if beginWord in wordList:
-            wordList.remove(beginWord)
-        
-        if endWord not in wordList:
-            return "ERROR, END WORD IS NOT IN LIST"
-
-        lit.append(endWord)
-        queue = collections.deque([[beginWord, 1]])
-        leng = len(beginWord)
-        
-        while queue:
-            print(lit)
-            word, length = queue.popleft()
-            if word == endWord:
-                print(lit) 
-                return length
-            wordListCopy = wordList.copy()
-
-        
-            for n in wordListCopy:
-                if sum(n[i]!=word[i] for i in range(leng))==1:
-                    wordList.remove(n)
-                    queue.append(n)
-                    lit.append([n,length+1])
-                    
-        
-        return 0
-        
-
-
 def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
 
+    if start_word == end_word:
+            list1 = [start_word]
+            return list1
 
+    
     f = open(dictionary_file,'r')
     wordList = [line[0:5] for line in f.readlines()]
     
