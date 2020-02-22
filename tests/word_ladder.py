@@ -68,15 +68,17 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
             for i in wordList:                                  #for each word in the dictionary
                     if _adjacent(o1[len(o1)-1], i):             #if word is adjacent to the top of the stack
                             if i == end_word:
-                                    print(o1[len(o1)-1])        #if word is end word
-                                    print(i)                    
+                                            #if word is end word
+                                                     
                                     
                                 
                                     o3 = o1
                                     o3.append(i)
-                                    
+
+                                   
                                                                 #you are done
-                                    return(o3)                  #front stack + this word is word ladder
+                                    return(o3)
+                                    break   #front stack + this word is word ladder
                                               
                             o2 = copy.deepcopy(o1)              #make copy of the stack
                             o2.append(i)                        #push found word onto copy
