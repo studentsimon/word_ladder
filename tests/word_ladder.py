@@ -27,7 +27,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                                                      ## i have no idea why all 9 lists are length 10...
                                         
                                     o1.append(i)
-                                    return(o3)
+                                    return(o1)
                                     break                       #you are done
                                    
                                       #front stack + this word is word ladder
