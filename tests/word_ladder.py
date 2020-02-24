@@ -17,10 +17,13 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     list1 = []                                                  #create a stack
     list1.append(start_word)                                    #push start word onto stack
     q1 = deque()                                                #create a queue
-    q1.append(list1)                                            #enque the stack onto the queue
+    q1.append(list1)
+    
+    
+    #enque the stack onto the queue
     while len(q1) > 0:                                          #while queue is not empty
             o1 = q1.popleft()                                   #dequeue a stack from the queue
-            for i in wordList:                                  #for each word in the dictionary
+            for i in set(wordList):                                  #for each word in the dictionary
                     if _adjacent(o1[len(o1)-1], i):             #if word is adjacent to the top of the stack
                             if i == end_word:
                                     
@@ -29,8 +32,8 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                                         
                                     o1.append(i)
                                     
-                                    if len(o1) == 10 and start_word != "money" and start_word != "stone":
-                                        o1.pop()
+                                    #if len(o1) == 10 and start_word != "money" and start_word != "stone":
+                                   
                                     
                                     return(o1)
                                     break                       #you are done
@@ -39,9 +42,12 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                                               
                             o2 = copy.deepcopy(o1)              #make copy of the stack
                             o2.append(i)                        #push found word onto copy
-                            q1.append(o2)                       #enqueue the copy
-                            wordList.remove(i)                  #delete word from dictionary                              
-                         
+                            q1.append(o2)
+                            #enqueue the copy
+                            try:
+                                wordList.remove(i)                #delete word from dictionary                              
+                            except ValueError:
+                                pass
                             
                             
     '''
@@ -130,3 +136,4 @@ def _adjacent(word1, word2):
     >>> _adjacent('stone','money')
     False
     '''
+
